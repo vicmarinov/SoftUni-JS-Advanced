@@ -1,7 +1,7 @@
-function solve() {
+function solve () {
     document.querySelector('#searchBtn').addEventListener('click', onClick);
     
-    function onClick() {
+    function onClick () {
         const tableRows = document.querySelector('table.container tbody').getElementsByTagName('tr');
         const searchField = document.getElementById('searchField');
         console.log('started');

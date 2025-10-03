@@ -1,4 +1,4 @@
-function solve() {
+function solve () {
     document.querySelector('#btnSend').addEventListener('click', onClick);
 
     const inputField = document.getElementById('inputs').getElementsByTagName('textarea')[0];
