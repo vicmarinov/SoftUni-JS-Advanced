@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { isSymmetric } from '../05-check-for-symmetry.js';
+import { isSymmetric } from '../Resources from SoftUni/05-check-for-symmetry.js';
 
 describe('Test isSymmetric(arr)', () => {
     it('Returns true for a symmetric array', () => {

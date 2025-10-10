@@ -1,5 +1,5 @@
-import { expect, assert } from 'chai';
-import { sum } from '../04-sum-of-numbers.js';
+import { expect } from 'chai';
+import { sum } from '../Resources from SoftUni/04-sum-of-numbers.js';
 
 describe("Test sum(arr)", () => {
     it("Finds the sum of an empty array", () => {

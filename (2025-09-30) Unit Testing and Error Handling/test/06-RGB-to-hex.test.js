@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { rgbToHexColor } from '../06-RGB-to-hex.js';
+import { rgbToHexColor } from '../Resources from SoftUni/06-RGB-to-hex.js';
 
 describe('Test rgbToHexColor(red, green, blue)', () => {
     it('Returns the correct hex color', () => {

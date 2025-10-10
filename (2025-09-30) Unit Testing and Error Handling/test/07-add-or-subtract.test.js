@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { createCalculator } from '../07-add-or-subtract.js';
+import { createCalculator } from '../Resources from SoftUni/07-add-or-subtract.js';
 
 describe('Test the returned value of createCalculator()', () => {
     const calculator = createCalculator();
