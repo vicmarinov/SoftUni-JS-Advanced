@@ -24,7 +24,7 @@ function lockedProfile () {
         }
 
         const hiddenSection = profile.getElementsByTagName('div')[0];
-        const isHidden = hiddenSection.style.display = 'block';
+        const isHidden = (hiddenSection.style.display || 'none') === 'none';
         
         if (isHidden) {
             hiddenSection.style.display = 'block';
