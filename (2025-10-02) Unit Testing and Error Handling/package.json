@@ -1,0 +1,18 @@
+{
+  "name": "2025-10-02-unit-testing-and-error-handling",
+  "version": "1.0.0",
+  "main": "01-request-validator.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Victor Marinov",
+  "license": "UNLICENSED",
+  "description": "",
+  "devDependencies": {
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "chai": "^6.2.0",
+    "mocha": "^11.7.4"
+  }
+}
