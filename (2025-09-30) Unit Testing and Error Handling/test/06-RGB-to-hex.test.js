@@ -10,7 +10,7 @@ describe('Test rgbToHexColor(red, green, blue)', () => {
         expect(rgbToHexColor(0, 0, 255)).to.equal('#0000FF');
     });
 
-    it('Returns undefined when an invalid type/value is passed as an argument', () => {
+    it('Returns `undefined` when an invalid type/value is passed as an argument', () => {
         expect(rgbToHexColor(300, 300, 300)).to.be.undefined;
 
         expect(rgbToHexColor(300, 0, 0)).to.be.undefined;
@@ -34,7 +34,7 @@ describe('Test rgbToHexColor(red, green, blue)', () => {
         expect(rgbToHexColor({red: 1, green: 2, blue: 3})).to.be.undefined;
     });
 
-    it('Returns undefined when has missing arguments', () => {
+    it('Returns `undefined` when has missing arguments', () => {
         expect(rgbToHexColor()).to.be.undefined;
         expect(rgbToHexColor(1)).to.be.undefined;
         expect(rgbToHexColor(1, 2)).to.be.undefined;
