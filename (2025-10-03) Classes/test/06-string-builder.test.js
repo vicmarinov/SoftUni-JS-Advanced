@@ -28,6 +28,21 @@ describe('Test the StringBuilder class', () => {
         expect(instance._stringArray).to.exist;
     });
 
+    it('Test the whole integrity of the class', () => {
+        const charsList = ['\n', ' ', 'A', ' ', '\n', '\r', ' ', 'B', '\t', '1', '2', '3', ' ', ' ', ' '];
+        const instance = new StringBuilder();
+
+        for (const char of charsList) {
+            instance.append(char);
+            instance.prepend(char);
+        }
+
+        instance.insertAt('test', 4);
+        instance.remove(2, 4);
+
+        expect(instance.toString()).to.equal('  st21\tB \r\n A \n\n A \n\r B\t123   ');
+    });
+
     describe('Test the constructor(string) method', () => {
         it('Makes a correct instance when is invocated without any parameters', () => {
             const instance = new StringBuilder();
@@ -43,6 +58,7 @@ describe('Test the StringBuilder class', () => {
             expect(() => new StringBuilder(4)).to.throw('Argument must be a string');
             expect(() => new StringBuilder(['a string in an array'])).to.throw('Argument must be a string');
             expect(() => new StringBuilder({str: 'some text '})).to.throw('Argument must be a string');
+            expect(() => new StringBuilder(null)).to.throw('Argument must be a string');
         });
     });
 
@@ -130,12 +146,6 @@ describe('Test the StringBuilder class', () => {
             expect(() => instance1.insertAt({string: '.', startIndex: '4'})).to.throw('Argument must be a string');
             expect(() => instance1.insertAt()).to.throw('Argument must be a string');
             expect(() => instance1.insertAt(null)).to.throw('Argument must be a string');
-
-            expect(() => instance1.insertAt('.', '4')).to.throw;
-            expect(() => instance1.insertAt('.', [4])).to.throw;
-            expect(() => instance1.insertAt('.', {startIndex: 4})).to.throw;
-            expect(() => instance1.insertAt('.', null)).to.throw;
-            expect(() => instance1.insertAt('.')).to.throw; // the same as instance1.insertAt('.', undefined)
         });
     });
 
@@ -178,22 +188,6 @@ describe('Test the StringBuilder class', () => {
             instance6.remove(2, 0);
             expect(instance6.toString()).to.equal('0123456'); // makes nothing
         });
-
-        it('Throws an error when has parameters with an incorrect type', () => {
-            const instance = new StringBuilder('Mr John Doe');
-            
-            expect(() => instance.remove('3', '5')).to.throw;
-            expect(() => instance.remove(3, '5')).to.throw;
-            expect(() => instance.remove('3', 5)).to.throw;
-
-            expect(() => instance.remove([3, 5])).to.throw;
-            expect(() => instance.remove([3], 5)).to.throw;
-            expect(() => instance.remove(3, [5])).to.throw;
-
-            expect(() => instance.remove({startIndex: 3, length: 5})).to.throw;
-            expect(() => instance.remove(3, {length: 5})).to.throw;
-            expect(() => instance.remove({startIndex: 3}, 5)).to.throw;
-        });
     });
 
     describe('Test the toString() method', () => {
@@ -210,8 +204,8 @@ describe('Test the StringBuilder class', () => {
 
     describe('Test the _vrfyParam(string) method', () => {
         it('Does not throw an error when has a string as an argument', () => {
-            expect(StringBuilder._vrfyParam('some text')).not.to.throw;
-            expect(StringBuilder._vrfyParam('')).not.to.throw;
+            expect(() => StringBuilder._vrfyParam('some text')).to.not.throw();
+            expect(() => StringBuilder._vrfyParam('')).to.not.throw();
         });
 
         it('Throws a correct error when its argument is NOT a string', () => {
@@ -223,6 +217,22 @@ describe('Test the StringBuilder class', () => {
             expect(() => StringBuilder._vrfyParam(null)).to.throw('Argument must be a string');
             expect(() => StringBuilder._vrfyParam()).to.throw('Argument must be a string');
             expect(() => StringBuilder._vrfyParam(undefined)).to.throw('Argument must be a string');
+        });
+    });
+
+    describe('Test the way of storing chars in the _stringArray property', () => {
+        it('Stores all characters in an array where each element is exactly 1 char', () => {
+            const instance = new StringBuilder('4556');
+            instance.append('7');
+            instance.prepend('3');
+            instance.append('89');
+            instance.prepend('02');
+            instance.remove(4, 1);
+            instance.insertAt('1', 1);
+    
+            for (const element of instance._stringArray) {
+                expect(element.length).to.equal(1);
+            }
         });
     });
 });
