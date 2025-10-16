@@ -9,7 +9,7 @@
   "author": "Victor Marinov",
   "license": "UNLICENSED",
   "description": "",
-  "dependencies": {
+  "devDependencies": {
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "chai": "^6.2.0",
