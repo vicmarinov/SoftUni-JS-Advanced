@@ -26,4 +26,4 @@ Course structure
 | Classes                          | exercise    |    6 October 2025 |
 | Prototypes and Inheritance       | lecture     |    7 October 2025 |
 | Prototypes and Inheritance       | exercise    |    9 October 2025 |
-| Workshop: Browser Game           | workshop    |   14 October 2025 |
+| Browser Game                     | workshop    |   14 October 2025 |
