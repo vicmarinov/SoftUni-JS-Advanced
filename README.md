@@ -3,8 +3,14 @@ JS Advanced
 
 This repository contains my solutions to the problems provided during the lectures and exercises in the [JS Advanced](https://softuni.bg/trainings/5095/js-advanced-september-2025) course at [SoftUni](https://softuni.bg). All solutions here can be successfully tested with SoftUni's [Alpha Judge system](https://alpha.judge.softuni.org).
 
-Course structure
-----------------
+🛠️ Technologies & Tools used
+---------------------------
+
+- JavaScript (ES6+)
+- Mocha & Chai (unit testing)
+
+📚 Course structure
+------------------
 
 | Lesson topic                     | Lesson type | Date              |
 | -------------------------------- | ----------- | ----------------- |
